@@ -14,12 +14,15 @@ if (!process.env.BOT_TOKEN) {
 
 registerCommands(bot);
 
-bot.start((ctx) => {
-  console.log(`Пользователь ${ctx.from.id} написал /start`);
-  ctx.reply('Привет! Я бот для поиска вакансий с hh.ru. Используй /find для поиска.');
-});
-
 startScheduler(bot);
+
+bot.catch((err, ctx) => {
+  console.error('Bot error:', err);
+})
+
+process.on('unhandledRejection', (err) => {
+  console.error('Unhandled rejection:', err);
+})
 
 bot.launch();
 

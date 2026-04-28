@@ -13,8 +13,8 @@ export function formatVacancyCard(vacancy: Vacancy, isNew = false): string {
 🔗 Ссылка: ${vacancy.alternate_url}`;
 }
 
-export function formatVacanciesList(vacancies: Vacancy[]): string {
-  const items = vacancies.map((v, i) => `${i + 1}. ${formatVacancyCard(v)}`).join('\n\n');
+export function formatVacanciesList(vacancies: Vacancy[], offset = 0): string {
+  const items = vacancies.map((v, i) => `${offset + i + 1}. ${formatVacancyCard(v)}`).join('\n\n');
   return items;
 }
 

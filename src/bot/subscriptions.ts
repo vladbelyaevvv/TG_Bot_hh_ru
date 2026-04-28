@@ -54,8 +54,12 @@ export function createSubscription(
     query: string,
     area: string,
     areaName: string
-): Subscription {
+): Subscription | null {
     const subscriptions = loadSubscriptions();
+    const userSubs = subscriptions.filter(sub => sub.userId === userId && sub.active);
+    if(userSubs.length >= 5) {
+        return null;
+    }
 
     const newSub: Subscription = {
         id: Date.now().toString(),

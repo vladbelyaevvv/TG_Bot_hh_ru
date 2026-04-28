@@ -16,7 +16,7 @@ export function startScheduler(bot: Telegraf){
 
     console.log('📅 Планировщик инициализирован');
 
-    cron.schedule('*/30 * * * *', async () => {
+    cron.schedule('*/1 * * * *', async () => {
         console.log('🔄 Запуск проверки новых вакансий...');
 
         const subscriptions = getAllActiveSubscriptions();
@@ -42,7 +42,7 @@ export function startScheduler(bot: Telegraf){
                     console.log(`Найдено ${newVacancies.length} новых вакансий для подписки ${sub.id}: ${sub.query} ${sub.areaName}`);
 
                     for (const vacancy of newVacancies){
-                        const success = await sendVacancyToUser(bot, sub.userId, vacancy);
+                        const success = await sendVacancyToUser(bot, sub.userId, vacancy, `${sub.query} ${sub.areaName}`);
                         if (success) {
                             addSentVacancy(sub.id, vacancy.id);
                         }
@@ -57,10 +57,10 @@ export function startScheduler(bot: Telegraf){
     })
 }
 
-async function sendVacancyToUser(bot: Telegraf, userId: number, vacancy: Vacancy): Promise<boolean> {
+async function sendVacancyToUser(bot: Telegraf, userId: number, vacancy: Vacancy, subName: string): Promise<boolean> {
     const salary = formatSalary(vacancy.salary);
     
-    const message = `🆕 Новая вакансия!\n\n` +
+    const message = `🆕 Новая вакансия от подписки *${subName}*!\n\n` +
     `*${vacancy.name}*\n` +
     `🏢 Компания: ${vacancy.employer?.name}\n` +
     `💰 ${salary || 'Зарплата не указана'}\n` +
