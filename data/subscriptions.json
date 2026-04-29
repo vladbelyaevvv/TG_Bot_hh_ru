@@ -1,0 +1,287 @@
+[
+  {
+    "id": "1775573239539",
+    "userId": 510035580,
+    "query": "TypeScript",
+    "area": "1",
+    "areaName": "Москва",
+    "active": false,
+    "createdAt": "2026-04-07T14:47:19.539Z"
+  },
+  {
+    "id": "1775739449265",
+    "userId": 510035580,
+    "query": "Программист",
+    "area": "1",
+    "areaName": "Москва",
+    "active": true,
+    "createdAt": "2026-04-09T12:57:29.265Z",
+    "sentVacancies": [
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "132000057",
+        "sentAt": "2026-04-09T14:18:02.880Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "132000047",
+        "sentAt": "2026-04-09T14:18:02.992Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "132000044",
+        "sentAt": "2026-04-09T14:18:03.101Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "131999879",
+        "sentAt": "2026-04-09T14:18:03.212Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "131999860",
+        "sentAt": "2026-04-09T14:18:03.318Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "131999636",
+        "sentAt": "2026-04-09T14:18:03.423Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "129746841",
+        "sentAt": "2026-04-09T14:18:03.524Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "131117353",
+        "sentAt": "2026-04-09T14:18:03.639Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "131900367",
+        "sentAt": "2026-04-09T14:18:03.783Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "129644789",
+        "sentAt": "2026-04-09T14:18:03.896Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "131482631",
+        "sentAt": "2026-04-09T14:19:33.024Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "132000212",
+        "sentAt": "2026-04-09T14:24:02.191Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "132000273",
+        "sentAt": "2026-04-09T14:27:01.128Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "131098217",
+        "sentAt": "2026-04-09T14:28:00.683Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "128793683",
+        "sentAt": "2026-04-09T14:29:01.704Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "92354865",
+        "sentAt": "2026-04-09T14:29:01.807Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "129724721",
+        "sentAt": "2026-04-09T14:31:05.862Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "131551404",
+        "sentAt": "2026-04-09T14:31:05.965Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "131829222",
+        "sentAt": "2026-04-09T14:31:06.071Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "132598708",
+        "sentAt": "2026-04-28T17:30:00.653Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "131928720",
+        "sentAt": "2026-04-28T17:30:00.755Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "132598599",
+        "sentAt": "2026-04-28T17:30:00.865Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "132598595",
+        "sentAt": "2026-04-28T17:30:00.969Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "131318315",
+        "sentAt": "2026-04-28T17:30:01.065Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "132096652",
+        "sentAt": "2026-04-28T17:30:01.196Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "132598471",
+        "sentAt": "2026-04-28T17:30:01.307Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "130584582",
+        "sentAt": "2026-04-28T17:30:01.441Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "107590620",
+        "sentAt": "2026-04-28T17:30:01.544Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "130900761",
+        "sentAt": "2026-04-28T17:30:01.669Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "132598942",
+        "sentAt": "2026-04-28T18:00:00.379Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "132598942",
+        "sentAt": "2026-04-28T18:00:00.409Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "132598924",
+        "sentAt": "2026-04-28T18:00:00.541Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "132598924",
+        "sentAt": "2026-04-28T18:00:00.562Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "132598921",
+        "sentAt": "2026-04-28T18:00:00.634Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "132598921",
+        "sentAt": "2026-04-28T18:00:00.657Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "131336508",
+        "sentAt": "2026-04-28T18:00:00.732Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "131336508",
+        "sentAt": "2026-04-28T18:00:00.755Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "131931294",
+        "sentAt": "2026-04-28T18:31:00.389Z"
+      },
+      {
+        "subscriptionId": "1775739449265",
+        "vacancyId": "132599437",
+        "sentAt": "2026-04-28T19:01:00.662Z"
+      }
+    ]
+  },
+  {
+    "id": "1777395904128",
+    "userId": 510035580,
+    "query": "frontend",
+    "area": "96",
+    "areaName": "Ижевск",
+    "active": false,
+    "createdAt": "2026-04-28T17:05:04.128Z",
+    "sentVacancies": [
+      {
+        "subscriptionId": "1777395904128",
+        "vacancyId": "130575371",
+        "sentAt": "2026-04-28T17:30:02.002Z"
+      },
+      {
+        "subscriptionId": "1777395904128",
+        "vacancyId": "132343668",
+        "sentAt": "2026-04-28T17:30:02.166Z"
+      },
+      {
+        "subscriptionId": "1777395904128",
+        "vacancyId": "132308610",
+        "sentAt": "2026-04-28T17:30:02.273Z"
+      },
+      {
+        "subscriptionId": "1777395904128",
+        "vacancyId": "130597178",
+        "sentAt": "2026-04-28T17:30:02.456Z"
+      },
+      {
+        "subscriptionId": "1777395904128",
+        "vacancyId": "130597179",
+        "sentAt": "2026-04-28T17:30:02.573Z"
+      },
+      {
+        "subscriptionId": "1777395904128",
+        "vacancyId": "130597180",
+        "sentAt": "2026-04-28T17:30:02.756Z"
+      },
+      {
+        "subscriptionId": "1777395904128",
+        "vacancyId": "130597181",
+        "sentAt": "2026-04-28T17:30:02.953Z"
+      },
+      {
+        "subscriptionId": "1777395904128",
+        "vacancyId": "130575225",
+        "sentAt": "2026-04-28T17:30:03.082Z"
+      },
+      {
+        "subscriptionId": "1777395904128",
+        "vacancyId": "130575224",
+        "sentAt": "2026-04-28T17:30:03.176Z"
+      },
+      {
+        "subscriptionId": "1777395904128",
+        "vacancyId": "130575223",
+        "sentAt": "2026-04-28T17:30:03.274Z"
+      }
+    ]
+  },
+  {
+    "id": "1777400492464",
+    "userId": 510035580,
+    "query": "python",
+    "area": "88",
+    "areaName": "Казань",
+    "active": false,
+    "createdAt": "2026-04-28T18:21:32.464Z"
+  }
+]

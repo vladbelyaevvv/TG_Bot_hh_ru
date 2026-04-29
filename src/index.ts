@@ -1,19 +1,28 @@
 import { Telegraf } from 'telegraf';
 import { config } from 'dotenv';
+import { registerCommands } from './bot/commands';
+import { startScheduler } from './bot/scheduler';
 
 config();
 
 const bot = new Telegraf(process.env.BOT_TOKEN!);
 
-bot.start((ctx) => {
-  console.log(`Пользователь ${ctx.from.id} написал /start`);
-  ctx.reply('Привет! Я бот для поиска вакансий с hh.ru');
-});
+if (!process.env.BOT_TOKEN) {
+  console.error('❌ BOT_TOKEN не найден в .env');
+  process.exit(1);
+}
 
-bot.help((ctx) => {
-  console.log(`Пользователь ${ctx.from.id} написал /help`);
-  ctx.reply('Команды:\n/start - начать\n/help - помощь');
-});
+registerCommands(bot);
+
+startScheduler(bot);
+
+bot.catch((err, ctx) => {
+  console.error('Bot error:', err);
+})
+
+process.on('unhandledRejection', (err) => {
+  console.error('Unhandled rejection:', err);
+})
 
 bot.launch();
 
