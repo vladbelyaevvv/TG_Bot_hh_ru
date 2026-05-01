@@ -1,5 +1,5 @@
 import { Context, Telegraf } from "telegraf";
-import { createSubscription } from "../subscriptions";
+import { createSubscription } from "../../services/subscription_db";
 import { Message } from "telegraf/types";
 import { findAreaByName } from "../../api/hhApi";
 
@@ -65,7 +65,7 @@ export function registerSubscribe(bot: Telegraf) {
                 return ctx.reply('❌ Город не найден. Проверь название и попробуй ещё раз.');
             }
 
-            const subscription = createSubscription(userId, state.query!, area.id, area.name);
+            const subscription = await createSubscription(userId, state.query!, area.id, area.name);
 
             if(!subscription) {
                 pendingSubscriptions.delete(userId);
