@@ -1,8 +1,8 @@
 import { Context, Markup, Telegraf } from "telegraf";
-import { getUserSubscriptions } from "../subscriptions";
+import { getUserSubscriptions } from "../../services/subscription_db";
 
 export async function showSubscriptions(ctx: Context) {
-    const subs = getUserSubscriptions(ctx.from!.id);
+    const subs = await getUserSubscriptions(ctx.from!.id);  // ← добавили await
 
     if(subs.length === 0){
         return ctx.reply('У вас нет активных подписок. Создайте через `/subscribe`', {

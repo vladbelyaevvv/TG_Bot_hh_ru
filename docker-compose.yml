@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  job-bot:
+    image: job-bot
+    container_name: job-bot
+    restart: always
+    env_file:
+      - .env

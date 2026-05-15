@@ -1,10 +1,10 @@
 import { Telegraf } from "telegraf";
-import { deactivateSubscription } from "../subscriptions";
+import { deactivateSubscription } from "../../services/subscription_db";
 import { Message } from "telegraf/types";
 import { showSubscriptions } from "./list";
 
 export function registerUnsubscribe(bot: Telegraf) {
-    bot.command('unsubscribe', (ctx) => {
+    bot.command('unsubscribe', async (ctx) => {
         const message = ctx.message as Message.TextMessage;
         const args = message.text.split(' ').slice(1).join(' ');
 
@@ -16,7 +16,7 @@ export function registerUnsubscribe(bot: Telegraf) {
                 { parse_mode: 'Markdown' }
             )
         }
-        const success = deactivateSubscription(ctx.from.id, args);
+        const success = await deactivateSubscription(ctx.from.id, args);
 
         if (success) {
             ctx.reply('✅ Подписка отключена');
@@ -27,7 +27,7 @@ export function registerUnsubscribe(bot: Telegraf) {
 
     bot.action(/^unsub_(.+)$/, async (ctx) => {
         const subscriptionId = ctx.match[1];
-        const success = deactivateSubscription(ctx.from!.id, subscriptionId);
+        const success = await deactivateSubscription(ctx.from!.id, subscriptionId);
 
         ctx.answerCbQuery();
 

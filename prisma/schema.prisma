@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+
+model Subscription {
+  id            String         @id @default(cuid())
+  userId        Int
+  query         String
+  area          String
+  areaName      String
+  active        Boolean        @default(true)
+  createdAt     DateTime       @default(now())
+
+  sentVacancies SentVacancy[]
+
+  @@index([userId])
+  @@index([active])
+  @@index([userId, active]) // Полезно для /list
+
+  @@map("Subscription")
+}
+
+model SentVacancy {
+  id             String       @id @default(cuid())
+  subscriptionId String
+  vacancyId      String
+  sentAt         DateTime     @default(now())
+
+  // ссылка на Subscription
+  subscription   Subscription @relation(fields: [subscriptionId], references: [id], onDelete: Cascade)
+
+  @@unique([subscriptionId, vacancyId])
+
+  // для поиска по vacancyId для фильтрации
+  @@index([vacancyId])
+
+  @@map("SentVacancy")
+}

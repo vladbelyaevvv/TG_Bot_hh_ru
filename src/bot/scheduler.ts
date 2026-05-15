@@ -1,6 +1,6 @@
 import { Telegraf } from "telegraf";
 import cron from "node-cron";
-import { addSentVacancy, getAllActiveSubscriptions, wasVacancySent } from "./subscriptions";
+import { addSentVacancy, getAllActiveSubscriptions, wasVacancySent } from "../services/subscription_db";
 import { searchVacancies, Vacancy } from "../api/hhApi";
 import { formatSalary } from "../utils";
 
@@ -16,24 +16,55 @@ export function startScheduler(bot: Telegraf){
 
     console.log('📅 Планировщик инициализирован');
 
-    cron.schedule('*/1 * * * *', async () => {
+    cron.schedule('*/5 * * * *', async () => {
         console.log('🔄 Запуск проверки новых вакансий...');
 
-        const subscriptions = getAllActiveSubscriptions();
+        const subscriptions = await getAllActiveSubscriptions();
 
         if(subscriptions.length === 0) {
             console.log('Нет активных подписок');
             return;
         }
 
-        for(const sub of subscriptions) {
+        for (const sub of subscriptions) {
+            try {
+                const result = await searchVacancies(sub.query, sub.area, 10);
+                
+                console.log(`[${sub.query}] Получено ${result.items.length} вакансий, из них новых:`, 0);
+                
+                let newCount = 0;
+                for (const vacancy of result.items) {
+                    const sent = await wasVacancySent(sub.id, vacancy.id);
+                    
+                    if (!sent) {
+                        newCount++;
+                        console.log(`[${sub.query}] 🆕 Новая вакансия: ${vacancy.id} (${vacancy.name})`);
+                        
+                        const success = await sendVacancyToUser(bot, sub.userId, vacancy, `${sub.query} ${sub.areaName}`);
+                        if (success) {
+                            await addSentVacancy(sub.id, vacancy.id);
+                            console.log(`[${sub.query}] ✅ Сохранено: ${vacancy.id}`);
+                        } else {
+                            console.log(`[${sub.query}] ❌ Не отправлено: ${vacancy.id}`);
+                        }
+                    } else {
+                        console.log(`[${sub.query}] ⏩ Уже было: ${vacancy.id} (${vacancy.name})`);
+                    }
+                }
+                console.log(`[${sub.query}] Отправлено новых: ${newCount}/${result.items.length}`);
+            } catch (error) {
+                console.error(`Ошибка при проверке подписки ${sub.id}:`, error);
+            }
+        }
+
+        /**for(const sub of subscriptions) {
             try {
                 const result = await searchVacancies(sub.query, sub.area, 10);
                 
                 console.log(`Получено ${result.items.length} вакансий для "${sub.query}"`);
                 
-                const newVacancies = result.items.filter(v => {
-                    const sent = wasVacancySent(sub.id, v.id);
+                const newVacancies = result.items.filter(async v => {
+                    const sent = await wasVacancySent(sub.id, v.id);
                     console.log(`Вакансия ${v.id} (${v.name}): ${sent ? 'уже отправлена' : 'новая'}`);
                     return !sent;
                 });
@@ -44,7 +75,7 @@ export function startScheduler(bot: Telegraf){
                     for (const vacancy of newVacancies){
                         const success = await sendVacancyToUser(bot, sub.userId, vacancy, `${sub.query} ${sub.areaName}`);
                         if (success) {
-                            addSentVacancy(sub.id, vacancy.id);
+                            await addSentVacancy(sub.id, vacancy.id);
                         }
                     }
                 } else {
@@ -53,7 +84,7 @@ export function startScheduler(bot: Telegraf){
             } catch (error) {
                 console.error(`Ошибка при проверке подписки ${sub.id}:`, error);
             }
-        }
+        }**/
     })
 }
 

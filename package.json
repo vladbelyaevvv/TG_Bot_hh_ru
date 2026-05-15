@@ -18,10 +18,12 @@
     "dotenv": "^17.3.1",
     "node-cron": "^4.2.1",
     "telegraf": "^4.16.3",
-    "ts-node": "^10.9.2",
-    "typescript": "^6.0.2"
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
-    "@types/axios": "^0.9.36"
+    "@prisma/client": "^5.19.1",
+    "@types/axios": "^0.9.36",
+    "prisma": "^5.19.1",
+    "typescript": "^6.0.3"
   }
 }
