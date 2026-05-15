@@ -1,4 +1,3 @@
-# Текущее состояние - бот работает, можно подписаться на поиск
 # Ссылки на курсовые работы в Google docs
 
 1. Беляев Владислав Сергеевич https://docs.google.com/document/d/14ij8zJuEj5tUPCfFffCUIPr0-9GKNDei0D0FH7Z162U/edit?tab=t.0
